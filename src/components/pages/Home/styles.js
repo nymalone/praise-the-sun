@@ -30,9 +30,9 @@ export const ImageButton = styled.Image`
 
 export const Button = styled.TouchableOpacity`
   position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 48;
+  width: 40px;
+  height: 40px;
+  top: 10;
   right: 0;
   border-radius: 50;
 `;

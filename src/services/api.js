@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const API = 'https://api.openweathermap.org/data/2.5/';
+export const API = "https://api.openweathermap.org/data/2.5/";
 
-export const GET_FORECAST = '/'
+export const GET_FORECAST = "/";
 
 export const weatherApi = axios.create({
   baseURL: API,

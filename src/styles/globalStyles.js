@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  flex: 1;
+export const Container = styled.ScrollView`
   width: 100%;
   position: relative;
 `;
@@ -12,13 +11,13 @@ export const ImageBackground = styled.ImageBackground`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
+  padding: 20px 20px 30px 20px;
 `;
 
 export const Title = styled.Text`
   text-align: center;
   font-size: 38px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 

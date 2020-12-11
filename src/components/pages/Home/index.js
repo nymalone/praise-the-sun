@@ -7,12 +7,12 @@ import { fetchWeather } from "../../../store/actions";
 import Card from "../../atoms/Card";
 import Current from "../../molecules/Current";
 import Daily from "../../molecules/Daily";
+import Details from "../../molecules/Details";
 
-import Pin from '../../../assets/pin.png';
-import Refresh from '../../../assets/refresh.png';
+import Pin from "../../../assets/pin.png";
+import Refresh from "../../../assets/refresh.png";
 
-
-import { CityContainer, City, Image, ImageButton, Button } from './styles.js'
+import { CityContainer, City, Image, ImageButton, Button } from "./styles.js";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,23 +26,26 @@ const Home = () => {
   }, [latLon]);
 
   const handleRefresh = () => {
-    dispatch(fetchWeather(...latLon))
-  }
+    dispatch(fetchWeather(...latLon));
+  };
 
   return (
     <>
-    <Button onPress={handleRefresh}>
-      <ImageButton source={Refresh} />
-    </Button>
+      <Button onPress={handleRefresh}>
+        <ImageButton source={Refresh} />
+      </Button>
       <Card>
         <CityContainer>
-        <Image source={Pin} />
-        <City>São Paulo, SP</City>
+          <Image source={Pin} />
+          <City>São Paulo, SP</City>
         </CityContainer>
         <Current />
       </Card>
       <Card>
         <Daily />
+      </Card>
+      <Card>
+        <Details />
       </Card>
     </>
   );

@@ -30,7 +30,6 @@ export const fetchWeather = (lat, lon) => async (dispatch) => {
       url: `/onecall?lat=${lat}&lon=${lon}&units=metric&lang=pt_br&appid=${API_KEY}`,
     });
     dispatch(setWeatherForecast(data));
-    console.log("data")
   } catch (axiosError) {
     const error = handleAxiosError(axiosError);
     dispatch(setWeatherError(error));

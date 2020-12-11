@@ -47,10 +47,12 @@ const Current = () => {
   return (
     <CurrentCard>
       <Date>
-        { dateTime ? format(dateTime, "dd 'de' MMMM', às ' HH:mm'h'", {
-          addSuffix: true,
-          locale: ptBrLocale,
-        }) : ' '}
+        {dateTime
+          ? format(dateTime, "dd 'de' MMMM', às ' HH:mm'h'", {
+              addSuffix: true,
+              locale: ptBrLocale,
+            })
+          : " "}
       </Date>
       <FlexContainer>
         <Container>
