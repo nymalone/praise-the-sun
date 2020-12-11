@@ -1,21 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import Geocoder from 'react-native-geocoding';
 
 import useGeoLocation from "../../../config/useGeolocation";
 import { fetchWeather } from "../../../store/actions";
 
 import Card from "../../atoms/Card";
 import Current from "../../molecules/Current";
-import Pin from '../../../assets/pin.png';
+import Daily from "../../molecules/Daily";
 
-import { CityContainer, City, Image } from './styles.js'
+import Pin from '../../../assets/pin.png';
+import Refresh from '../../../assets/refresh.png';
+
+
+import { CityContainer, City, Image, ImageButton, Button } from './styles.js'
 
 const Home = () => {
   const dispatch = useDispatch();
 
   const latLon = useGeoLocation();
-  console.log("latlon", latLon);
 
   useEffect(() => {
     if (latLon) {
@@ -23,14 +25,24 @@ const Home = () => {
     }
   }, [latLon]);
 
+  const handleRefresh = () => {
+    dispatch(fetchWeather(...latLon))
+  }
+
   return (
     <>
+    <Button onPress={handleRefresh}>
+      <ImageButton source={Refresh} />
+    </Button>
       <Card>
         <CityContainer>
         <Image source={Pin} />
         <City>São Paulo, SP</City>
         </CityContainer>
         <Current />
+      </Card>
+      <Card>
+        <Daily />
       </Card>
     </>
   );

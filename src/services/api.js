@@ -6,7 +6,7 @@ export const GET_FORECAST = '/'
 
 export const weatherApi = axios.create({
   baseURL: API,
-  timeout: 1000,
+  timeout: 10000,
 });
 
 export const handleAxiosError = (error) => {

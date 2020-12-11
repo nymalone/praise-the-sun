@@ -1,9 +1,11 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { format } from "date-fns";
 import ptBrLocale from "date-fns/locale/pt-BR";
 
 import { toUpperCase, getDT } from "../../../utils/stringUtils";
+
+import Hourly from "../Hourly";
 
 import { Image } from "react-native";
 import {
@@ -40,20 +42,15 @@ const Current = () => {
   );
 
   const dt = useSelector((weather) => weather?.weatherForecast.current.dt);
-
-  const current = useSelector((weather) => weather?.weatherForecast.current);
-
-  console.log("current", current);
-
   const dateTime = getDT(dt);
 
   return (
     <CurrentCard>
       <Date>
-        {format(dateTime, "dd 'de' MMMM', às ' HH:mm'h'", {
+        { dateTime ? format(dateTime, "dd 'de' MMMM', às ' HH:mm'h'", {
           addSuffix: true,
           locale: ptBrLocale,
-        })}
+        }) : ' '}
       </Date>
       <FlexContainer>
         <Container>
@@ -75,6 +72,7 @@ const Current = () => {
           <Status>Sensação {Math.round(feelsLike)}°</Status>
         </Description>
       </FlexContainer>
+      <Hourly />
     </CurrentCard>
   );
 };

@@ -28,12 +28,12 @@ export const Text = styled.Text`
 `;
 
 export const Status = styled.Text`
-  font-size: 14.5px;
+  font-size: 16px;
   text-align: center;
 `;
 
 export const Date = styled.Text`
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
   margin-bottom: 5px;
   padding: 0 5px;
