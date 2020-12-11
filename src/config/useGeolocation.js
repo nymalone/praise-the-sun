@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Geolocation from '@react-native-community/geolocation';
+import Geolocation from "@react-native-community/geolocation";
 
 export default function useGeoLocation(lat, lon) {
   const [latLon, setLatLon] = useState(null);
@@ -12,7 +12,7 @@ export default function useGeoLocation(lat, lon) {
       (err) => {
         console.log(err);
       },
-      { enableHighAccuracy: true, timeout: 10000 }
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 }
     );
   }, []);
 
