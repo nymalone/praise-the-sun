@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { format } from "date-fns";
 import ptBrLocale from "date-fns/locale/pt-BR";
 
-import { toUpperCase, getDT } from "../../../utils/stringUtils";
+import {  getDT } from "../../../utils/stringUtils";
 
 import Sunset from "../../../assets/sunset.png";
 import Sunrise from "../../../assets/sunrise.png";

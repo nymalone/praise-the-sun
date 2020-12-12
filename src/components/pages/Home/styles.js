@@ -36,3 +36,9 @@ export const Button = styled.TouchableOpacity`
   right: 0;
   border-radius: 50;
 `;
+
+export const Error = styled.Text`
+  font-size: 35px;
+  text-align: center;
+  color: red;
+`;
