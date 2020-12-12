@@ -67,7 +67,11 @@ const Home = () => {
           </Card>
         </>
       )}
-      {error && <Error> {error} </Error>}
+      {error && (
+        <Card>
+          <Error> {error} </Error>
+        </Card>
+      )}
     </>
   );
 };

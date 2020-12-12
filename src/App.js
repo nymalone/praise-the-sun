@@ -10,7 +10,6 @@ import DayImage from "./assets/day.png";
 import NightImage from "./assets/night.png";
 
 import Home from "./components/pages/Home";
-import Spinner from "./components/atoms/Spinner";
 
 import { SafeAreaView } from "react-native";
 
