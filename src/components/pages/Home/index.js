@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Geocoder from "react-native-geocoding";
 
 import useGeoLocation from "../../../config/useGeolocation";
+import { MAP_API_KEY } from "../../../config/apiKey";
+
 import { fetchWeather } from "../../../store/actions";
 
 import Card from "../../atoms/Card";
@@ -25,13 +28,12 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
-
-  const latLon = useGeoLocation();
+  const [address, setAddress] = useState(null);
 
   const loading = useSelector((weather) => weather?.weatherForecast.loading);
-  const error = useSelector(
-    (weather) => weather.weatherForecast.error?.message
-  );
+  const error = useSelector((weather) => weather?.weatherForecast.error);
+
+  const latLon = useGeoLocation();
 
   useEffect(() => {
     if (latLon) {
@@ -42,6 +44,24 @@ const Home = () => {
   const handleRefresh = () => {
     dispatch(fetchWeather(...latLon));
   };
+
+  const lat = latLon?.slice(0, 1);
+  const lon = latLon?.slice(1);
+  function getCity() {
+    Geocoder.init(MAP_API_KEY);
+
+    Geocoder.from({
+      latitude: lat,
+      longitude: lon,
+    })
+      .then((json) => {
+        setAddress(json.results[0].address_components);
+      })
+      .catch((error) => console.warn(error));
+    return address;
+  }
+
+  const cityName = getCity()
 
   return (
     <>
@@ -55,7 +75,9 @@ const Home = () => {
           <Card>
             <CityContainer>
               <Image source={Pin} />
-              <City>São Paulo, SP</City>
+              <City>
+                {cityName[1].short_name}, {cityName[4].short_name}
+              </City>
             </CityContainer>
             <Current />
           </Card>
@@ -69,7 +91,7 @@ const Home = () => {
       )}
       {error && (
         <Card>
-          <Error> {error} </Error>
+          <Error> {error?.message} </Error>
         </Card>
       )}
     </>
