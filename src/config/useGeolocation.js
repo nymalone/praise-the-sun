@@ -10,7 +10,7 @@ export default function useGeoLocation(lat, lon) {
         setLatLon([position.coords.latitude, position.coords.longitude]);
       },
       (err) => {
-        console.log(err);
+        console.log("ERR =>", err);
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 }
     );

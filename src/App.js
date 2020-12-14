@@ -24,6 +24,7 @@ const App = () => {
       addSuffix: true,
       locale: ptBrLocale,
     });
+    console.log("HOUR", hour)
 
     if (hour >= 6 && hour < 18) {
       setBackgroundImage(DayImage);
@@ -31,7 +32,6 @@ const App = () => {
       setBackgroundImage(NightImage);
     }
   }, []);
-
   return (
     <Provider store={store}>
       <SafeAreaView>

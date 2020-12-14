@@ -45,9 +45,9 @@ const Home = () => {
     dispatch(fetchWeather(...latLon));
   };
 
-  const lat = latLon?.slice(0, 1);
-  const lon = latLon?.slice(1);
   function getCity() {
+    const lat = latLon?.slice(0, 1);
+    const lon = latLon?.slice(1);
     Geocoder.init(MAP_API_KEY);
 
     Geocoder.from({
@@ -55,13 +55,13 @@ const Home = () => {
       longitude: lon,
     })
       .then((json) => {
-        setAddress(json.results[0].address_components);
+        setAddress(json.results[0]?.address_components);
       })
       .catch((error) => console.warn(error));
     return address;
   }
 
-  const cityName = getCity()
+  const cityName = getCity();
 
   return (
     <>
@@ -76,7 +76,11 @@ const Home = () => {
             <CityContainer>
               <Image source={Pin} />
               <City>
-                {cityName[1].short_name}, {cityName[4].short_name}
+                {cityName ? (
+                  `${cityName[1].short_name}, ${cityName[4].short_name}`
+                ) : (
+                  <>São Paulo, SP</>
+                )}
               </City>
             </CityContainer>
             <Current />
