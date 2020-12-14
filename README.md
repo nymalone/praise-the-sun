@@ -20,7 +20,7 @@ Desenvolva um aplicativo que consuma a localização atual do usuário e exiba n
 | ![](video_day.gif)                                                  | ![](video_night.gif)  | 
 
 
-Aplicação mostrando temperatura atual, temperatura para às próximas 12 horas e temperatura diária para 1 semana. Além de detalhes como horário de nascer/pôr do sol, humidade relativa do ar, visibilidade, etc.
+Aplicação mostrando localização atualo do usuário, temperatura atual, temperatura para às próximas 12 horas e temperatura diária para 1 semana. Além de detalhes como horário de nascer/pôr do sol, humidade relativa do ar, visibilidade, etc.
 Também conta com background dinâmico em relação ao horário atual. 
 
 ## Instalação
