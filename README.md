@@ -13,8 +13,6 @@
 
 Desenvolva um aplicativo que consuma a localização atual do usuário e exiba na interface o endereço atual os dados climáticos da região e um botão para atualizar os dados.
 
-Para fazer essa busca, pode-se usar a API do Open Weather Map: http://api.openweathermap.org/
-
 ## Resultado
 
 | Após 6am até 18h                                                 | 18h até 6am                                            | 
@@ -42,7 +40,7 @@ A aplicacão estará rodando no simulador. *(Utilizado xcode para desenvolviment
 - Styled components
 - React native geocoding 
 - React native community geolocation
-- Openweather api
+- [Openweather api](http://api.openweathermap.org/)
 
 ## Arquitetura
 O **Atomic Design** é uma metodologia que nos ajuda a pensar na interface do usuário (UI) de maneira hierarquia, e apresenta técnicas para otimizar o fluxo de trabalho do design e desenvolvimento em equipe.
